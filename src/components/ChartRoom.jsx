@@ -1,55 +1,39 @@
-import { Cell, Pie, PieChart, Text, Tooltip } from "recharts";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
 import Card from "./Card";
-import { RechartsDevtools } from "@recharts/devtools";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 const ChartRoom = () => {
+
+  const data = {
+    labels: ['Ocupados', 'Manutenção', 'Reservados', 'Vagos'],
+    datasets: [
+      {
+        label: "Quartos",
+        data: [2, 1, 2, 5],
+        backgroundColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+        ],
+      },
+    ],
+  };
+
   return (
     <Card
       titulo="Distribuição de Quartos"
     >
-      <PieChart
-  style={{
-    width: '100%',
-    height: '100%',
-    maxWidth: '500px',
-    maxHeight: '80vh',
-    aspectRatio: 1,
-  }}
-  responsive
->
-  <Pie
-    data={[
-      { name: "Ocupados", value: 2 },
-      { name: "Vagos", value: 1 },
-      { name: "Reservados", value: 2 },
-      { name: "Manutenção", value: 5 },
-    ]}
-    dataKey="value"
-    cx="50%"
-    cy="50%"
-    innerRadius="60%"
-    outerRadius="80%"
-    label
-  >
-    <Cell fill="#82ca9d" />
-    <Cell fill="#ff8042" />
-    <Cell fill="#ffbb28" />
-    <Cell fill="#8884d8" />
-  </Pie>
-  <Text
-      x="50%"
-      y="50%"
-      textAnchor="middle"
-      dominantBaseline="middle"
-      style={{
-        fontSize: '20px',
-        fontWeight: 'bold',
-      }}
-    >
-      {10}
-    </Text>
-  <RechartsDevtools />
-</PieChart>
+      <div className='relative border'>
+        <Doughnut data={data} />
+        <div className='w-25 h-25 flex flex-col justify-center items-center border absolute text-center bottom-15 z-10 left-1/2 -translate-x-1/2'>
+          <h2>10</h2>
+          <h6>Total</h6>
+        </div>
+      </div>
     </Card>
   );
 }
