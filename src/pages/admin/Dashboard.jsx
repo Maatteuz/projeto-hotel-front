@@ -78,6 +78,8 @@ const Dashboard = () => {
                     />
                 ))}
             </div>
+
+            {/* CARD 1: Status dos Quartos */}
             <Card
                 titulo="Status dos Quartos"
                 info={
@@ -95,22 +97,23 @@ const Dashboard = () => {
                     ))}
                 </div>
             </Card>
-            <Card
-                titulo="Reservas Recentes"
-                info={
-                    <a
-                        href="#"
-                        className="bg-yellow-500 text-gray-900 hover:bg-yellow-600 px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors"
-                    >
-                        Ver todas <span>&rarr;</span>
-                    </a>
-                }
-            >
-                <h1>Lista de reservas vai aqui...</h1>
-            </Card>
 
-            <div className="flex">
-                <div className="flex-1"></div>
+            <div className="flex gap-5">
+                <div className="flex-1">
+                    <Card
+                        titulo="Reservas Recentes"
+                        info={
+                            <a
+                                href="#"
+                                className="bg-yellow-500 text-gray-900 hover:bg-yellow-600 px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors"
+                            >
+                                Ver todas <span>&rarr;</span>
+                            </a>
+                        }
+                    >
+                        <h1>Lista de reservas vai aqui...</h1>
+                    </Card>
+                </div>
                 <div className="w-75">
                     <ChartRoom />
                 </div>
