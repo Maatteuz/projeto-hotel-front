@@ -1,5 +1,7 @@
 import Card from "../../components/Card";
-import { FaCircle } from "react-icons/fa";
+import { FaCircle, FaRegUser } from "react-icons/fa";
+import CardReservas from "../../components/CardReservas";
+import { MdOutlineBed } from "react-icons/md";
 
 const Dashboard = () => {
     return (
@@ -30,14 +32,57 @@ const Dashboard = () => {
                 info={
                     <a
                         href="#"
-                        className="bg-yellow-500 text-gray-900 hover:bg-yellow-600 px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors"
+                        className="bg-white
+                        hover:text-black
+                        text-blue-900 hover:bg-yellow-600 px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors"
                     >
                         Ver todas <span>&rarr;</span>
                     </a>
                 }
             >
                 {/* ... conteúdo do card ... */}
-                <h1>Lista de reservas vai aqui...</h1>
+                <CardReservas
+                  foto={ <FaRegUser className=" text-xl text-gray-900"/>}
+                  nome="Carlos eduardo mendesa"
+                 
+                  status="pendente"
+
+                  quarto={
+                  <p>suíte presidencial 101</p>}
+                    dados={<p>01 fev - 05 fev</p>}
+                    valor={<p>R$ 1.500,00</p>}
+                    forma={<p>Cartão de Débito</p>}
+                >
+                </CardReservas>
+
+                  <CardReservas
+                  foto={ <FaRegUser className=" text-xl text-gray-900"/>}
+                  nome="Roberto Almeida"
+                 
+                  status="pago"
+
+                  quarto={
+                  <p>Quarto Standard 103</p>}
+                    dados={<p>03 fev - 06 fev</p>}
+                    valor={<p>R$ 2.200,00</p>}
+                    forma={<p>Dinheiro</p>}
+                >
+                </CardReservas>
+
+                
+                  <CardReservas
+                  foto={ <FaRegUser className=" text-xl text-gray-900"/>}
+                  nome="Fernanda Oliveira"
+                 
+                  status="pedente"
+
+                  quarto={
+                  <p>Suíte Master 101</p>}
+                    dados={<p>15 fev - 20 fev</p>}
+                    valor={<p>3.300,00</p>}
+                    forma={<p>transferencia</p>}
+                >
+                </CardReservas>
             </Card>
 
         </main>
